@@ -11,3 +11,9 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
+promotions:
+  - name: Production deploy
+    pipeline_file: production_deploy.yml
+    auto_promote_on:
+      - result: passed
+        branch: master
