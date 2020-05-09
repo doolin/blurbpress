@@ -16,4 +16,5 @@ promotions:
     pipeline_file: production_deploy.yml
     auto_promote_on:
       - result: passed
-        branch: master
+        branch:
+          - master
