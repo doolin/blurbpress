@@ -16,4 +16,4 @@ blocks:
               # - cache restore website-build-$SEMAPHORE_GIT_SHA
               # - aws s3 sync "public" "s3://blurbpress.com" --acl "public-read"
               # - aws s3 sync "." "s3://blurbpress.com" --acl "public-read"
-            - aws s3 sync "." "s3://blurbpress.com"
+            - aws s3 sync "public_html" "s3://blurbpress.com"
