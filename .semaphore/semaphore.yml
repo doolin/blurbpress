@@ -5,12 +5,30 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: 'Block #1'
+  - name: 'yarn install'
     task:
+      prologue:
+        commands:
+          - sem-version node 14.2.0
       jobs:
         - name: 'Job #1'
           commands:
             - checkout
+            - cache restore
+            - yarn install
+            - cache store
+  - name: "Build site"
+    task:
+      prologue:
+        commands:
+          - sem-version node 14.2.0
+      jobs:
+        - name: Build
+          commands:
+            - checkout
+            - cache restore
+            - yarn build
+            - cache store website-build-$SEMAPHORE_GIT_SHA public
 promotions:
   - name: Production deploy
     pipeline_file: production_deploy.yml

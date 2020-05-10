@@ -1,3 +1,3 @@
 import React from "react"
 
-export default () => <div>Gatsby error.</div>
+export default () => <pre>It's gatsby's fault.</pre>
